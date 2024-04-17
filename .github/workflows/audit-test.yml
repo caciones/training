@@ -1,0 +1,21 @@
+name: HTML Audit
+on: [push, pull_request]
+jobs:
+    audit:
+      runs-on: ubuntu-latest
+      steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Install Dependencies
+        run: npm ci
+      - name: Run Audit Export
+        run: npm run audit
+      - name: Archive Audit Report
+        uses: actions/upload-artifact@v2
+        with:
+          name: audit-report
+          path: ./audit-report.json

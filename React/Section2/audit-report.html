@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NPM Audit Report</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: start;
+      padding: 3rem;
+    }
+
+    h1 {
+      color: #333;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .info-block {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      padding: 20px;
+      margin: 10px 10px;
+      min-width: 200px;
+      max-width: 300px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .info-categories {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+
+    .vulnerability-category {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      margin: 10px;
+      padding: 10px;
+      min-width: 100px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .vulnerability-category strong, .info-block strong {
+      margin-top: 7px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .critical {
+      background-color: #dc3545;
+    }
+
+    .high {
+      background-color: #ff7b00;
+    }
+
+    .moderate {
+      background-color: #ffc107;
+    }
+
+    .low {
+      background-color: #28a745;
+    }
+
+    .informative {
+      background-color: #17a2b8;
+    }
+
+    table {
+      width: 100%;
+      max-width: 1200px;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 6px 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+      position: relative;
+      cursor: pointer;
+    }
+
+    a {
+      color: #007bff;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .sort-icon {
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #acacac;
+      font-weight: normal;
+      font-size: 12px;
+    }
+
+    .sort-icon.asc {
+      font-weight: bold;
+      color: #000;
+    }
+
+    .sort-icon.desc {
+      font-weight: bold;
+      color: #000;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>NPM Audit Report</h1>
+
+  <div class="info-categories">
+    <div class="info-block">
+      <p>Vulnerabilities Found:</p> <strong>15</strong>
+    </div>
+    <div class="info-block">
+      <p>Vulnerable Dependencies:</p> <strong>8</strong>
+    </div>
+    <div class="info-block">
+      <p>Last Updated:</p> <strong>17 of April, 2024 - 15:55:28</strong>
+    </div>
+  </div>
+
+  <div class="info-categories">
+    <div class="vulnerability-category"><p>Critical:</p> <strong class="badge critical">0</strong></div>
+    <div class="vulnerability-category"><p>High:</p> <strong class="badge high">5</strong></div>
+    <div class="vulnerability-category"><p>Moderate:</p> <strong class="badge moderate">8</strong></div>
+    <div class="vulnerability-category"><p>Low:</p> <strong class="badge low">2</strong></div>
+    <div class="vulnerability-category"><p>Informative:</p> <strong class="badge informative">0</strong></div>
+  </div>
+
+  <table id="sortable-table">
+    <thead>
+      <tr>
+        <th onclick="sortTable(0, this)">Title<span class="sort-icon">▼</span></th>
+        <th onclick="sortTable(1, this)">Package Name<span class="sort-icon">▼</span></th>
+        <th onclick="sortTable(2, this)">Severity<span class="sort-icon desc">▲</span></th>
+        <th onclick="sortTable(3, this)">Related CWEs and CVEs<span class="sort-icon">▼</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        
+          <tr>
+            <td><a href="https://github.com/advisories/GHSA-ww39-953v-wcq6">glob-parent vulnerable to Regular Expression Denial of Service in enclosure regex</a></td>
+            <td><a href="https://www.npmjs.com/package/glob-parent">glob-parent</a></td>
+            <td><span class="badge high">high</span></td>
+            <td>CWE-400, </td>
+          </tr>
+        
+          <tr>
+            <td><a href="https://github.com/advisories/GHSA-f4c9-cqv8-9v98">Insufficient Granularity of Access Control in JSDom</a></td>
+            <td><a href="https://www.npmjs.com/package/jsdom">jsdom</a></td>
+            <td><span class="badge moderate">moderate</span></td>
+            <td>CWE-1220, </td>
+          </tr>
+        
+          <tr>
+            <td><a href="https://github.com/advisories/GHSA-5rrq-pxf6-6jx5">Prototype Pollution in node-forge debug API.</a></td>
+            <td><a href="https://www.npmjs.com/package/node-forge">node-forge</a></td>
+            <td><span class="badge low">low</span></td>
+            <td>CWE-1321, </td>
+          </tr>
+        
+          <tr>
+            <td><a href="https://github.com/advisories/GHSA-gf8q-jrpm-jvxq">URL parsing in node-forge could lead to undesired behavior.</a></td>
+            <td><a href="https://www.npmjs.com/package/node-forge">node-forge</a></td>
+            <td><span class="badge low">low</span></td>
+            <td>CWE-601, </td>
+          </tr>
+        
+          <tr>
+            <td><a href="https://github.com/advisories/GHSA-2r2c-g63r-vccr">Improper Verification of Cryptographic Signature in `node-forge`</a></td>
+            <td><a href="https://www.npmjs.com/package/node-forge">node-forge</a></td>
+            <td><span class="badge moderate">moderate</span></td>
+            <td>CWE-347, </td>
+          </tr>
+        
+          <tr>
+            <td><a href="https://github.com/advisories/GHSA-8fr3-hfg3-gpgp">Open Redirect in node-forge</a></td>
+            <td><a href="https://www.npmjs.com/package/node-forge">node-forge</a></td>
+            <td><span class="badge moderate">moderate</span></td>
+            <td>CWE-601, </td>
+          </tr>
+        
+          <tr>
+            <td><a href="https://github.com/advisories/GHSA-cfm4-qjh2-4765">Improper Verification of Cryptographic Signature in node-forge</a></td>
+            <td><a href="https://www.npmjs.com/package/node-forge">node-forge</a></td>
+            <td><span class="badge high">high</span></td>
+            <td>CWE-347, </td>
+          </tr>
+        
+          <tr>
+            <td><a href="https://github.com/advisories/GHSA-x4jg-mjrx-434g">Improper Verification of Cryptographic Signature in node-forge</a></td>
+            <td><a href="https://www.npmjs.com/package/node-forge">node-forge</a></td>
+            <td><span class="badge high">high</span></td>
+            <td>CWE-347, </td>
+          </tr>
+        
+          <tr>
+            <td><a href="https://github.com/advisories/GHSA-rp65-9cf3-cjxr">Inefficient Regular Expression Complexity in nth-check</a></td>
+            <td><a href="https://www.npmjs.com/package/nth-check">nth-check</a></td>
+            <td><span class="badge high">high</span></td>
+            <td>CWE-1333, </td>
+          </tr>
+        
+          <tr>
+            <td><a href="https://github.com/advisories/GHSA-hwj9-h5mp-3pm3">Regular Expression Denial of Service in postcss</a></td>
+            <td><a href="https://www.npmjs.com/package/postcss">postcss</a></td>
+            <td><span class="badge moderate">moderate</span></td>
+            <td>CWE-400, </td>
+          </tr>
+        
+          <tr>
+            <td><a href="https://github.com/advisories/GHSA-566m-qj78-rww5">Regular Expression Denial of Service in postcss</a></td>
+            <td><a href="https://www.npmjs.com/package/postcss">postcss</a></td>
+            <td><span class="badge moderate">moderate</span></td>
+            <td>CWE-400, </td>
+          </tr>
+        
+          <tr>
+            <td><a href="https://github.com/advisories/GHSA-7fh5-64p2-3v2j">PostCSS line return parsing error</a></td>
+            <td><a href="https://www.npmjs.com/package/postcss">postcss</a></td>
+            <td><span class="badge moderate">moderate</span></td>
+            <td>CWE-74, CWE-144, </td>
+          </tr>
+        
+          <tr>
+            <td><a href="https://github.com/advisories/GHSA-p8p7-x288-28g6">Server-Side Request Forgery in Request</a></td>
+            <td><a href="https://www.npmjs.com/package/request">request</a></td>
+            <td><span class="badge moderate">moderate</span></td>
+            <td>CWE-918, </td>
+          </tr>
+        
+          <tr>
+            <td><a href="https://github.com/advisories/GHSA-4wf5-vphf-c2xc">Terser insecure use of regular expressions leads to ReDoS</a></td>
+            <td><a href="https://www.npmjs.com/package/terser">terser</a></td>
+            <td><span class="badge high">high</span></td>
+            <td>CWE-1333, </td>
+          </tr>
+        
+          <tr>
+            <td><a href="https://github.com/advisories/GHSA-72xf-g2v4-qvf3">tough-cookie Prototype Pollution vulnerability</a></td>
+            <td><a href="https://www.npmjs.com/package/tough-cookie">tough-cookie</a></td>
+            <td><span class="badge moderate">moderate</span></td>
+            <td>CWE-1321, </td>
+          </tr>
+        
+      
+    </tbody>
+  </table>
+
+  <script>
+    let sortDirection = 1;
+
+    function sortTable(columnIndex, header) {
+      const table = document.getElementById("sortable-table");
+      const rows = Array.from(table.getElementsByTagName("tr"));
+
+      rows.shift(); // Remove the header row from the sorting
+
+      rows.sort((a, b) => {
+        const aValue = a.children[columnIndex].textContent.trim();
+        const bValue = b.children[columnIndex].textContent.trim();
+
+        if (!isNaN(aValue) && !isNaN(bValue)) {
+          return sortDirection * (parseFloat(aValue) - parseFloat(bValue));
+        } else {
+          return sortDirection * aValue.localeCompare(bValue);
+        }
+      });
+
+      const tbody = table.getElementsByTagName("tbody")[0];
+      tbody.innerHTML = "";
+      rows.forEach(row => {
+        tbody.appendChild(row);
+      });
+
+      // Toggle sort direction for the next click
+      sortDirection *= -1;
+
+      // Update sort icons
+      resetSortIcons();
+      updateSortIcon(header);
+    }
+
+    function resetSortIcons() {
+      const sortIcons = document.querySelectorAll('.sort-icon');
+      sortIcons.forEach(icon => {
+        icon.classList.remove('asc', 'desc');
+      });
+    }
+
+    function updateSortIcon(header) {
+      const sortIcon = header.querySelector('.sort-icon');
+
+      // Clear existing content
+      sortIcon.textContent = '';
+
+      if (sortDirection === 1) {
+        sortIcon.classList.remove('desc');
+        sortIcon.classList.add('asc');
+        sortIcon.textContent = '▼';
+      } else {
+        sortIcon.classList.remove('asc');
+        sortIcon.classList.add('desc');
+        sortIcon.textContent = '▲';
+      }
+    }
+
+    window.onload = function () {
+      sortTable(2, document.querySelector('#sortable-table th:nth-child(3)'));
+    };
+  </script>
+
+</body>
+
+</html>
