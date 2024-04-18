@@ -11,9 +11,9 @@ jobs:
         with:
           node-version: '14'
       - name: Install Dependencies
-        run: npm ci
+        run: npm install -g audit-export
       - name: Run Audit Export
-        run: npm run audit
+        run: cd React/Section2/ && npm audit --json | audit-export > audit-report.json
       - name: Archive Audit Report
         uses: actions/upload-artifact@v2
         with:
