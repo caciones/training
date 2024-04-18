@@ -4,7 +4,8 @@
   "main": "index.html",
   "scripts": {
     "start": "parcel index.html --open",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html",
+    "audit": "npm audit --json | audit-export > audit-report.json"
   },
   "dependencies": {
     "parcel-bundler": "^1.6.1"
