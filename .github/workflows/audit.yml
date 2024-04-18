@@ -17,5 +17,5 @@ jobs:
       - name: Archive Audit Report
         uses: actions/upload-artifact@v2
         with:
-          name: audit-report
-          path: ./audit-report.json
+          name: audit-report-v1
+          path: ./React/Section2/audit-report.json
