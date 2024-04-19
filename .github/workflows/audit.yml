@@ -5,9 +5,9 @@ jobs:
       runs-on: ubuntu-latest
       steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v2
         with:
           node-version: '14'
       - name: Install Dependencies
@@ -15,7 +15,7 @@ jobs:
       - name: Run Audit Export
         run: cd React/Section2/ && npm audit --json | npx audit-export -f html -o audit-report.html
       - name: Archive Audit Report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v2
         with:
           name: audit-report-v3
           path: ./React/Section2/audit-report.html
