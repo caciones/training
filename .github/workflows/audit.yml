@@ -26,7 +26,12 @@ on:
     paths:
       - "/React/Section2/**"
       - "/React/Section2//package.json"
-      - "!/React/Section2//package-lock.json"
+      - "/React/Section2//package-lock.json"
+  pull_request:
+    paths:
+      - "/React/Section2/**"
+      - "/React/Section2//package.json"
+      - "/React/Section2//package-lock.json"
 
 defaults:
   run:
