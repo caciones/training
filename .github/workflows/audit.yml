@@ -31,7 +31,7 @@ jobs:
         run: npm install -g audit-export
 
       - name: Run Audit Export
-        run: npm audit --json | audit-export > audit-report.html
+        run: cd React/Section2/ && npm audit --json | audit-export > audit-report.html
 
       - name: Archive Audit Report
         uses: actions/upload-artifact@v2
