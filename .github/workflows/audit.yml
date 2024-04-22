@@ -58,10 +58,11 @@ jobs:
         run: npm install -g audit-export
 
       - name: Run Audit Export
-        run: cd React/Section2/ && npm audit --json | audit-export > audit-report.html
+        run: npm audit --json | audit-export > audit-report.html
 
       - name: Archive Audit Report
         uses: actions/upload-artifact@v2
         with:
           name: audit-report-v3
-          path: cd React/Section2/audit-report.html
+          path: ./audit-report.html
+          retention-days: 14
