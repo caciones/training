@@ -37,7 +37,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: audit-report-v3
-          path: ./audit-report.html
+          path: audit-report.html
           retention-days: 14
 
 # name: HTML Audit
