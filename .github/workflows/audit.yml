@@ -1,15 +1,5 @@
 name: HTML Audit
-on:
-  push:
-    paths:
-      - "/React/Section2/**"
-      - "/React/Section2/package.json"
-      - "/React/Section2/package-lock.json"
-  pull_request:
-    paths:
-      - "/React/Section2/**"
-      - "/React/Section2/package.json"
-      - "/React/Section2/package-lock.json"
+on: [push, pull_request]
 
 defaults:
   run:
