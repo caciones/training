@@ -1,67 +1,67 @@
-name: HTML Audit
-on: [push, pull_request]
-jobs:
-    audit:
-      runs-on: ubuntu-latest
-      steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '16'
-      - name: Install Dependencies
-        run: npm install -g audit-export
-      - name: Run Audit Export
-        run: cd React/Section2/ && npm audit --json | audit-export > audit-report.html
-      - name: Archive Audit Report
-        uses: actions/upload-artifact@v4
-        with:
-          name: audit-report-v3
-          path: ./React/Section2/audit-report.html
-
 # name: HTML Audit
-# on:
-#   push:
-#     paths:
-#       - "/React/Section2/**"
-#       - "/React/Section2//package.json"
-#       - "/React/Section2//package-lock.json"
-#   pull_request:
-#     paths:
-#       - "/React/Section2/**"
-#       - "/React/Section2//package.json"
-#       - "/React/Section2//package-lock.json"
-
-# defaults:
-#   run:
-#     shell: bash
-#     working-directory: ./image-viewer
-
+# on: [push, pull_request]
 # jobs:
-#   audit:
-#     runs-on: ubuntu-latest
-#     permissions:
-#       contents: read
-#       packages: write
-
-#     steps:
+#     audit:
+#       runs-on: ubuntu-latest
+#       steps:
 #       - name: Checkout code
 #         uses: actions/checkout@v4
-
 #       - name: Set up Node.js
 #         uses: actions/setup-node@v4
 #         with:
-#           node-version: "16"
-
+#           node-version: '16'
 #       - name: Install Dependencies
 #         run: npm install -g audit-export
-
 #       - name: Run Audit Export
 #         run: cd React/Section2/ && npm audit --json | audit-export > audit-report.html
-
 #       - name: Archive Audit Report
-#         uses: actions/upload-artifact@v2
+#         uses: actions/upload-artifact@v4
 #         with:
 #           name: audit-report-v3
-#           path: ./cd React/Section2/audit-report.html
+#           path: ./React/Section2/audit-report.html
+
+name: HTML Audit
+on:
+  push:
+    paths:
+      - "/React/Section2/**"
+      - "/React/Section2//package.json"
+      - "/React/Section2//package-lock.json"
+  pull_request:
+    paths:
+      - "/React/Section2/**"
+      - "/React/Section2//package.json"
+      - "/React/Section2//package-lock.json"
+
+defaults:
+  run:
+    shell: bash
+    working-directory: ./image-viewer
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "16"
+
+      - name: Install Dependencies
+        run: npm install -g audit-export
+
+      - name: Run Audit Export
+        run: cd React/Section2/ && npm audit --json | audit-export > audit-report.html
+
+      - name: Archive Audit Report
+        uses: actions/upload-artifact@v2
+        with:
+          name: audit-report-v3
+          path: ./cd React/Section2/audit-report.html
