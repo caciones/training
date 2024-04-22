@@ -1,10 +1,10 @@
 name: HTML Audit
 on: [push, pull_request]
 
-defaults:
-  run:
-    shell: bash
-    working-directory: ./React/Section2/
+# defaults:
+#   run:
+#     shell: bash
+#     working-directory: ./React/Section2/
 
 jobs:
   audit:
@@ -37,7 +37,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: audit-report-v3
-          path: audit-report.html
+          path: ./React/Section2/audit-report.html
           retention-days: 14
 
 # name: HTML Audit
