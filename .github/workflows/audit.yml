@@ -25,18 +25,18 @@ on:
   push:
     paths:
       - "/React/Section2/**"
-      - "/React/Section2//package.json"
-      - "/React/Section2//package-lock.json"
+      - "/React/Section2/package.json"
+      - "/React/Section2/package-lock.json"
   pull_request:
     paths:
       - "/React/Section2/**"
-      - "/React/Section2//package.json"
-      - "/React/Section2//package-lock.json"
+      - "/React/Section2/package.json"
+      - "/React/Section2/package-lock.json"
 
 defaults:
   run:
     shell: bash
-    working-directory: ./image-viewer
+    working-directory: ./React/Section2
 
 jobs:
   audit:
@@ -64,4 +64,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: audit-report-v3
-          path: ./cd React/Section2/audit-report.html
+          path: cd React/Section2/audit-report.html
