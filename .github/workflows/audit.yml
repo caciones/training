@@ -8,15 +8,16 @@ on: [push, pull_request]
 
 jobs:
   audit:
-    defaults:
-        run:
-          shell: bash
-          working-directory: ./React/Section2/
-    
     runs-on: ubuntu-latest
     permissions:
-      contents: read
-      packages: write
+        contents: read
+        packages: write
+    
+    defaults:
+        run:
+          working-directory: ./React/Section2/
+    
+
 
     steps:
       - name: Checkout code
