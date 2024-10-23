@@ -47,6 +47,13 @@ jobs:
           path: ./React/Section2/audit-report.html
           retention-days: 14
 
+      - name: Deploy to GitHub Pages
+        if: success()
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./React/Section2/
+
 # name: HTML Audit
 # on: [push, pull_request]
 # jobs:
